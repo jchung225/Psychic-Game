@@ -19,14 +19,26 @@
 
 <script type = "text/javascript">
 
+$(document).ready(function() {
+
+    
 var wins= 0;
 var loses = 0;
 var guessesLeft =0;
-var yourguess 
+var userGuess = event.key;
+var GuessesLeft=10;
+var computerGuess;
+var AlreadyGuessed;
+
+$("userGuess").onkeyup(function(){
+    wins++;
+    var randomLetter = (Math.floor)(Math.random()
+    )
+
+});
 
 
-
-
+});
 
 
 </script>
