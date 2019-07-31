@@ -1,28 +1,27 @@
-$(document).ready(function(){
 
+    var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-    var wins= 0;
-    var loses = 0;
-    var guessesLeft =0;
-    var userGuess= event.key;
-    var computerGuess;
+var wins = 0;
+var loses = 0;
+var guessesLeft = 9;
+var GuessSoFar = "";
+var userGuess ="";
 
-    alreadyGuessed.push(userGuess);
-    console.log(alreadyGuessed);
-    
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    s
+document.onkeyup = function(event) {
+	guessesLeft--;
 
+	var userGuess = computerChoices(event.keyCode).toLowerCase();
 
-    var computerGuess = wins[Math.floor(Math.random()* wins.length)];
-
-    if (userGuess === computerGuess) {
-        wins++;
-        
-        guessesLeft= 10;
-    }
-    
-
-
-
-});
+	if (userGuess === computerGuess){
+		wins++;
+		document.write("#wins");
+		restart();
+	} 
+	else if (guessesLeft === 0) {
+		losses++;
+		document.write("#loses");
+		restart();
+	}
+  };

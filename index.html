@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
     <title>Document</title>
 </head>
 
@@ -15,35 +19,8 @@
 <p id="wins">Wins:</p>
 <p id="loses">Loses:</p>
 <p id="GuessesLeft">Guesses Left:</p>
-<p id="YourGuess">Your Guess so far:</p>
-
-<script type = "text/javascript">
-
-$(document).ready(function() {
-
-    
-var wins= 0;
-var loses = 0;
-var guessesLeft =0;
-var userGuess = event.key;
-var GuessesLeft=10;
-var computerGuess;
-var AlreadyGuessed;
-
-$("userGuess").onkeyup(function(){
-    wins++;
-    var randomLetter = (Math.floor)(Math.random()
-    )
-
-});
+<p id="GuessSoFar">Your Guess so far:</p>
 
 
-});
-
-
-</script>
-
-
-    
 </body>
 </html>
