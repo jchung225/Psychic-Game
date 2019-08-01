@@ -3,25 +3,29 @@
 
 var wins = 0;
 var loses = 0;
-var guessesLeft = 9;
-var GuessSoFar = "";
-var userGuess ="";
-
-var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+var guessesLeft= 10;
+var userGuess = "";
+var computerGuess = "";
+var guessSoFar =[];
 
 document.onkeyup = function(event) {
-	guessesLeft--;
+    guessesLeft--;
+   
+    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+console.log(computerGuess);
+    
+    userGuess = event.key.toLowerCase();
 
-	var userGuess = computerChoices(event.keyCode).toLowerCase();
+	console.log(userGuess);
 
 	if (userGuess === computerGuess){
-		wins++;
-		document.write("#wins");
+        wins++;
 		restart();
-	} 
+    } 
 	else if (guessesLeft === 0) {
-		losses++;
-		document.write("#loses");
+        loses++;
+		loses.textcontent = loses;
 		restart();
 	}
   };
+  
