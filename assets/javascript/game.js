@@ -7,40 +7,47 @@
     var guessSoFar = document.getElementById("GuessSoFar");
     var userGuess = "";
     var computerGuess = "";
+    var numberOfGuesses = 10;
     var winscount = 0;
     var lossescount = 0;
-    var alreadyGuessed = [];
-
-
     
+    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
 // starts function on key event.
     document.onkeyup = function(event) {
-        guessesLeft--;
-       
+    
         var userGuess = event.key;
         userGuess.toLowerCase();
-         console.log(guessSoFar);
 
         // random guess from computer.
-        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    console.log(computerGuess);
-        
     
+        console.log(computerGuess);
         console.log(userGuess);
-    
+
         if (userGuess === computerGuess){
-            console.log("you win");
+            winscount++;
+            winsText.textContent = "wins: " + winscount;
             alert("You're a Winner");
-            winsText++;
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            numberOfGuesses =10;         
         } 
         else {
             console.log("wrong Answer");
+            numberOfGuesses-- ;
+            guessesLeft.textContent = "GuessesLeft: " + numberOfGuesses;
+            guessSoFar.textContent = "GuessSoFar: " + userGuess;
         }
         
         
-        if (guessesLeft === 0) {
+        if (numberOfGuesses === 0) {
+            lossescount++;
+            lossesText.textContent = "Losses: " + lossescount;
             console.log("You lose");
             alert("You're a Loser");
-            lossesText++;
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            numberOfGuesses =10;            
         }
-      };
+
+
+    
+        };
