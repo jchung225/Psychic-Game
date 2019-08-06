@@ -1,6 +1,9 @@
 
     var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
+    var AlreadyGuessed=[];
+
+
     var winsText = document.getElementById("wins");
     var lossesText = document.getElementById("losses");
     var guessesLeft= document.getElementById("GuessesLeft");
@@ -23,7 +26,8 @@
     
         console.log(computerGuess);
         console.log(userGuess);
-
+        AlreadyGuessed.push(userGuess);
+    
         if (userGuess === computerGuess){
             winscount++;
             winsText.textContent = "wins: " + winscount;
@@ -35,19 +39,18 @@
             console.log("wrong Answer");
             numberOfGuesses-- ;
             guessesLeft.textContent = "GuessesLeft: " + numberOfGuesses;
-            guessSoFar.textContent = "GuessSoFar: " + userGuess;
+            guessSoFar.textContent = "GuessSoFar: " + AlreadyGuessed;
         }
-        
+
         
         if (numberOfGuesses === 0) {
             lossescount++;
             lossesText.textContent = "Losses: " + lossescount;
+            AlreadyGuessed=[];
             console.log("You lose");
             alert("You're a Loser");
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-            numberOfGuesses =10;            
+            numberOfGuesses =10;     
+         
         }
-
-
-    
         };
